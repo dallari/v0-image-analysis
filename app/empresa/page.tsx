@@ -452,7 +452,7 @@ export default function EmpresaPage() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-800 to-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Conheça Nossas Soluções na Prática</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Pronto para Conhecer Nossas Soluções?es?</h2>
           <p className="text-xl mb-8 text-blue-100">
             Descubra como nossa experiência e tecnologia podem transformar seus sistemas de ar comprimido
           </p>

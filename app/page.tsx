@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -25,6 +25,44 @@ import Image from "next/image"
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Typewriter effect
+  const services = [
+    "Ar Comprimido",
+    "Terceirização",
+    "Venda de Ar Comprimido",
+    "Locação de Equipamentos",
+    "Auditoria e Análise",
+  ]
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0)
+  const [displayText, setDisplayText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const currentService = services[currentServiceIndex]
+    const typingSpeed = isDeleting ? 50 : 100
+    const pauseTime = isDeleting ? 500 : 2000
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayText === currentService) {
+        // Pausa antes de começar a deletar
+        setTimeout(() => setIsDeleting(true), pauseTime)
+      } else if (isDeleting && displayText === "") {
+        // Move para o próximo serviço
+        setIsDeleting(false)
+        setCurrentServiceIndex((prev) => (prev + 1) % services.length)
+      } else if (isDeleting) {
+        // Deletando caracteres
+        setDisplayText(currentService.substring(0, displayText.length - 1))
+      } else {
+        // Adicionando caracteres
+        setDisplayText(currentService.substring(0, displayText.length + 1))
+      }
+    }, typingSpeed)
+
+    return () => clearTimeout(timeout)
+  }, [displayText, isDeleting, currentServiceIndex, services])
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -166,7 +204,11 @@ export default function HomePage() {
             <div>
               <Badge className="bg-orange-600 text-white mb-4">Monitoramento 24h via Internet</Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Soluções Completas em <span className="text-orange-400">Ar Comprimido</span>
+                Soluções Completas em{" "}
+                <span className="text-orange-400">
+                  {displayText}
+                  <span className="animate-pulse">|</span>
+                </span>
               </h1>
               <p className="text-xl mb-8 text-blue-100">
                 Maximize a eficiência da sua indústria com nossos sistemas de ar comprimido de alta performance.

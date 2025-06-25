@@ -1,42 +1,36 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Badge } from "@/components/ui/badge"
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Calculator, Monitor, Menu, X } from "lucide-react"
 import Link from "next/link"
+import { submitContactForm } from "../actions/contact"
 
 export default function ContatoPage() {
-  const [formData, setFormData] = useState({
-    nome: "",
-    empresa: "",
-    email: "",
-    telefone: "",
-    tipoServico: "",
-    mensagem: "",
-    aceitePrivacidade: false,
-  })
-
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Aqui seria implementada a lógica de envio do formulário
-    console.log("Formulário enviado:", formData)
-  }
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleWhatsApp = () => {
     const message = `Olá! Gostaria de solicitar informações sobre soluções de ar comprimido da Flow Energy.`
     const whatsappUrl = `https://wa.me/5511984539311?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
+  }
+
+  const handleSubmit = async (formData: FormData) => {
+    setIsSubmitting(true)
+    try {
+      await submitContactForm(formData)
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error)
+      alert("Erro ao enviar formulário. Tente novamente.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -190,51 +184,29 @@ export default function ContatoPage() {
                 personalizada das suas necessidades.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="nome">Nome Completo *</Label>
-                    <Input
-                      id="nome"
-                      type="text"
-                      value={formData.nome}
-                      onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="nome" name="nome" type="text" required className="mt-1" />
                   </div>
                   <div>
                     <Label htmlFor="empresa">Empresa *</Label>
-                    <Input
-                      id="empresa"
-                      type="text"
-                      value={formData.empresa}
-                      onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="empresa" name="empresa" type="text" required className="mt-1" />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="email">E-mail *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="email" name="email" type="email" required className="mt-1" />
                   </div>
                   <div>
                     <Label htmlFor="telefone">Telefone/WhatsApp *</Label>
                     <Input
                       id="telefone"
+                      name="telefone"
                       type="tel"
-                      value={formData.telefone}
-                      onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
                       required
                       className="mt-1"
                       placeholder="(11) 99999-9999"
@@ -244,30 +216,26 @@ export default function ContatoPage() {
 
                 <div>
                   <Label htmlFor="tipoServico">Tipo de Serviço de Interesse</Label>
-                  <Select
-                    value={formData.tipoServico}
-                    onValueChange={(value) => setFormData({ ...formData, tipoServico: value })}
+                  <select
+                    id="tipoServico"
+                    name="tipoServico"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   >
-                    <SelectTrigger className="mt-1">
-                      <SelectValue placeholder="Selecione o serviço" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="terceirizacao">Terceirização Completa</SelectItem>
-                      <SelectItem value="venda-ar">Venda de Ar Comprimido</SelectItem>
-                      <SelectItem value="locacao">Locação de Equipamentos</SelectItem>
-                      <SelectItem value="auditoria">Auditoria e Análise Técnica</SelectItem>
-                      <SelectItem value="monitoramento">Sistema de Monitoramento 24h</SelectItem>
-                      <SelectItem value="outros">Outros / Não sei ainda</SelectItem>
-                    </SelectContent>
-                  </Select>
+                    <option value="">Selecione o serviço</option>
+                    <option value="terceirizacao">Terceirização Completa</option>
+                    <option value="venda-ar">Venda de Ar Comprimido</option>
+                    <option value="locacao">Locação de Equipamentos</option>
+                    <option value="auditoria">Auditoria e Análise Técnica</option>
+                    <option value="monitoramento">Sistema de Monitoramento 24h</option>
+                    <option value="outros">Outros / Não sei ainda</option>
+                  </select>
                 </div>
 
                 <div>
                   <Label htmlFor="mensagem">Mensagem</Label>
                   <Textarea
                     id="mensagem"
-                    value={formData.mensagem}
-                    onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
+                    name="mensagem"
                     className="mt-1"
                     rows={4}
                     placeholder="Descreva suas necessidades, equipamentos atuais ou dúvidas específicas..."
@@ -275,12 +243,8 @@ export default function ContatoPage() {
                 </div>
 
                 <div className="flex items-start space-x-2">
-                  <Checkbox
-                    id="privacidade"
-                    checked={formData.aceitePrivacidade}
-                    onCheckedChange={(checked) => setFormData({ ...formData, aceitePrivacidade: checked as boolean })}
-                  />
-                  <Label htmlFor="privacidade" className="text-sm text-slate-600 leading-relaxed">
+                  <input type="checkbox" id="aceitePrivacidade" name="aceitePrivacidade" required className="mt-1" />
+                  <Label htmlFor="aceitePrivacidade" className="text-sm text-slate-600 leading-relaxed">
                     Aceito que meus dados sejam utilizados conforme a LGPD, exclusivamente para contato comercial e
                     desenvolvimento de propostas técnicas. A Flow Energy nunca compartilha dados com terceiros.
                   </Label>
@@ -290,10 +254,10 @@ export default function ContatoPage() {
                   type="submit"
                   size="lg"
                   className="w-full bg-blue-800 hover:bg-blue-900"
-                  disabled={!formData.aceitePrivacidade}
+                  disabled={isSubmitting}
                 >
                   <Send className="mr-2 h-5 w-5" />
-                  Solicitar Análise Técnica Gratuita
+                  {isSubmitting ? "Enviando..." : "Solicitar Análise Técnica Gratuita"}
                 </Button>
               </form>
             </div>

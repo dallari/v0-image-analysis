@@ -166,11 +166,10 @@ export default function HomePage() {
             <div>
               <Badge className="bg-orange-600 text-white mb-4">Monitoramento 24h via Internet</Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Soluções Completas em Ar Comprimido com Monitoramento 24h
+                Soluções Completas em Ar Comprimido
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Otimize custos, maximize eficiência. Terceirização completa de instalações com tecnologia de
-                monitoramento via internet.
+                Maximize a eficiência da sua indústria com nossos sistemas de ar comprimido de alta performance. Economia, confiabilidade e sustentabilidade garantidas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">

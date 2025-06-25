@@ -33,7 +33,13 @@ export default function HomePage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-blue-800">Flow Energy</h1>
+                <Image
+                  src="/placeholder.svg?height=40&width=160"
+                  alt="Flow Energy"
+                  width={160}
+                  height={40}
+                  className="h-10 w-auto"
+                />
               </div>
             </div>
 

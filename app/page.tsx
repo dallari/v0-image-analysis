@@ -189,8 +189,8 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
-                alt="Instalações industriais modernas com compressores"
+                src="/hero-industrial.jpg"
+                alt="Instalações industriais modernas com compressores de ar Flow Energy"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-2xl"

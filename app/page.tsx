@@ -34,7 +34,7 @@ export default function HomePage() {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Image
-                  src="/placeholder.svg?height=40&width=160"
+                  src="/logo.png" // ← Altere para o caminho do seu arquivo
                   alt="Flow Energy"
                   width={160}
                   height={40}

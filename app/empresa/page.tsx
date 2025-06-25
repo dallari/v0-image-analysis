@@ -157,7 +157,7 @@ export default function EmpresaPage() {
             <div>
               <Badge className="bg-orange-600 text-white mb-4">Sobre a Flow Energy</Badge>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Não somos apenas uma empresa de locação
+                Soluções Completas em Ar Comprimido
               </h1>
               <p className="text-xl mb-8 text-blue-100">
                 Somos um provedor de soluções em Ar Comprimido com vasta experiência na terceirização completa de

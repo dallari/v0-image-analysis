@@ -160,8 +160,7 @@ export default function EmpresaPage() {
                 Soluções Completas em Ar Comprimido
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Somos um provedor de soluções em Ar Comprimido com vasta experiência na terceirização completa de
-                instalações e tecnologia de monitoramento via internet.
+                Maximize a eficiência da sua indústria com nossos sistemas de ar comprimido de alta performance. Economia, confiabilidade e sustentabilidade garantidas.
               </p>
               <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
                 <Target className="mr-2 h-5 w-5" />

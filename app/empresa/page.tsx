@@ -164,13 +164,7 @@ export default function EmpresaPage() {
               </p>
               <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
                 <Target className="mr-2 h-5 w-5" />
-                Conheça Nossa Missão
-              </Button>
-            </div>
-            <div className="relative">
-              <Image
-                src="/placeholder.svg?height=500&width=600"
-                alt="Equipe Flow Energy em instalação industrial"
+                Solicite um orçamentoEnergy em instalação industrial"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-2xl"

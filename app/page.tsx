@@ -571,7 +571,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Flow Energy</h3>
+              <Image
+                src="/logo-flow-energy-footer.png"
+                alt="Flow Energy"
+                width={180}
+                height={45}
+                className="h-12 w-auto mb-4"
+              />
               <p className="text-slate-400 mb-4">
                 Soluções completas em ar comprimido com monitoramento 24h via internet.
               </p>

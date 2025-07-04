@@ -304,7 +304,17 @@ export default function ContatoPage() {
                   <p className="text-sm text-slate-600 italic">
                     "Se preferir, faça-nos uma visita, será um prazer recebê-lo(a)"
                   </p>
-                  <Button variant="outline" className="mt-3" size="sm">
+                  <Button
+                    variant="outline"
+                    className="mt-3 bg-transparent"
+                    size="sm"
+                    onClick={() =>
+                      window.open(
+                        "https://www.google.com/maps/place/Av.+Juscelino+Kubitschek+de+Oliveira,+1459+-+Lot.+Inocoop,+Mogi+Mirim+-+SP,+13806-520/@-22.4321,-46.9578,17z",
+                        "_blank",
+                      )
+                    }
+                  >
                     <MapPin className="mr-2 h-4 w-4" />
                     Ver no Mapa
                   </Button>
@@ -373,7 +383,12 @@ export default function ContatoPage() {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp: (11) 98453-9311
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-blue-800 text-blue-800 hover:bg-blue-50">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-blue-800 text-blue-800 hover:bg-blue-50 bg-transparent"
+              >
                 <a href="mailto:contato@flowenergy.com.br">
                   <Mail className="mr-2 h-5 w-5" />
                   contato@flowenergy.com.br

@@ -158,9 +158,11 @@ export default function ServicosPage() {
               comprimido
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-                <Calculator className="mr-2 h-5 w-5" />
-                Solicite Análise Técnica Gratuita
+              <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
+                <Link href="/contato?service=auditoria">
+                  <Calculator className="mr-2 h-5 w-5" />
+                  Solicite Análise Técnica Gratuita
+                </Link>
               </Button>
               <Button
                 size="lg"
@@ -608,9 +610,11 @@ export default function ServicosPage() {
             Nossa equipe técnica pode ajudar você a identificar a melhor solução para suas necessidades específicas
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-              <Calculator className="mr-2 h-5 w-5" />
-              Análise Técnica Gratuita
+            <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
+              <Link href="/contato?service=auditoria">
+                <Calculator className="mr-2 h-5 w-5" />
+                Análise Técnica Gratuita
+              </Link>
             </Button>
             <Button
               size="lg"

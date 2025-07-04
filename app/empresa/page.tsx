@@ -457,9 +457,11 @@ export default function EmpresaPage() {
             Descubra como nossa experiência e tecnologia podem transformar seus sistemas de ar comprimido
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-              <Monitor className="mr-2 h-5 w-5" />
-              Conheça o Monitoramento 24h
+            <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
+              <Link href="/contato?service=auditoria">
+                <Monitor className="mr-2 h-5 w-5" />
+                Conheça o Monitoramento 24h
+              </Link>
             </Button>
             <Button
               size="lg"

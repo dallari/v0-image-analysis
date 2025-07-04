@@ -215,9 +215,11 @@ export default function HomePage() {
                 Economia, confiabilidade e sustentabilidade garantidas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
-                  <Calculator className="mr-2 h-5 w-5" />
-                  Solicite Análise Técnica Gratuita
+                <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
+                  <Link href="/contato?service=auditoria">
+                    <Calculator className="mr-2 h-5 w-5" />
+                    Solicite Análise Técnica Gratuita
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
@@ -333,7 +335,7 @@ export default function HomePage() {
                     Monitoramento via internet
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline">
+                <Button className="w-full bg-transparent" variant="outline">
                   Solicitar Informações
                 </Button>
               </CardContent>
@@ -364,7 +366,7 @@ export default function HomePage() {
                     Qualidade garantida
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline">
+                <Button className="w-full bg-transparent" variant="outline">
                   Solicitar Informações
                 </Button>
               </CardContent>
@@ -395,7 +397,7 @@ export default function HomePage() {
                     Alta confiabilidade
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline">
+                <Button className="w-full bg-transparent" variant="outline">
                   Solicitar Informações
                 </Button>
               </CardContent>
@@ -426,7 +428,7 @@ export default function HomePage() {
                     ROI quantificado
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline">
+                <Button className="w-full bg-transparent" variant="outline">
                   Solicitar Informações
                 </Button>
               </CardContent>
@@ -592,9 +594,11 @@ export default function HomePage() {
             Solicite uma análise técnica gratuita e descubra como podemos reduzir seus custos de energia e manutenção.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-orange-600 hover:bg-slate-100">
-              <Calculator className="mr-2 h-5 w-5" />
-              Análise Técnica Gratuita
+            <Button asChild size="lg" className="bg-white text-orange-600 hover:bg-slate-100">
+              <Link href="/contato?service=auditoria">
+                <Calculator className="mr-2 h-5 w-5" />
+                Análise Técnica Gratuita
+              </Link>
             </Button>
             <Button
               size="lg"

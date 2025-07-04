@@ -159,9 +159,11 @@ export default function MonitoramentoPage() {
                 equipamentos, utilizando a internet.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-                  <Monitor className="mr-2 h-5 w-5" />
-                  Ver Dashboard Demo
+                <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
+                  <Link href="/contato?service=auditoria">
+                    <Monitor className="mr-2 h-5 w-5" />
+                    Solicitar Demonstração
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
@@ -606,9 +608,11 @@ export default function MonitoramentoPage() {
             Descubra como nossa tecnologia pode revolucionar a gestão dos seus sistemas de ar comprimido
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-              <Monitor className="mr-2 h-5 w-5" />
-              Solicitar Demonstração
+            <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
+              <Link href="/contato?service=auditoria">
+                <Monitor className="mr-2 h-5 w-5" />
+                Solicitar Demonstração
+              </Link>
             </Button>
             <Button
               size="lg"

@@ -2,7 +2,8 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -29,6 +30,23 @@ export default function ContatoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [selectedService, setSelectedService] = useState("")
+
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const service = searchParams.get("service")
+    if (service === "auditoria") {
+      setSelectedService("auditoria")
+      // Scroll para o formulário
+      setTimeout(() => {
+        const formElement = document.getElementById("contact-form")
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+      }, 100)
+    }
+  }, [searchParams])
 
   const handleWhatsApp = () => {
     const message = `Olá! Gostaria de solicitar informações sobre soluções de ar comprimido da Flow Energy.`
@@ -245,7 +263,7 @@ export default function ContatoPage() {
                 personalizada das suas necessidades.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" id="contact-form">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="nome">Nome Completo *</Label>
@@ -280,6 +298,8 @@ export default function ContatoPage() {
                   <select
                     id="tipoServico"
                     name="tipoServico"
+                    value={selectedService}
+                    onChange={(e) => setSelectedService(e.target.value)}
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   >
                     <option value="">Selecione o serviço</option>

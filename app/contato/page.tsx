@@ -310,7 +310,7 @@ export default function ContatoPage() {
                     size="sm"
                     onClick={() =>
                       window.open(
-                        "https://www.google.com/maps/place/Av.+Juscelino+Kubitschek+de+Oliveira,+1459+-+Lot.+Inocoop,+Mogi+Mirim+-+SP,+13806-520/@-22.4321,-46.9578,17z",
+                        "https://www.google.com/maps/search/Flow+Energy+Avenida+Jucelino+Kubitscheck+de+Oliveira+-+Loteamento+Inocoop,+Mogi+Mirim+-+SP",
                         "_blank",
                       )
                     }

@@ -9,28 +9,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Calculator, Monitor, Menu, X } from "lucide-react"
 import Link from "next/link"
-import { submitContactForm } from "../actions/contact"
 
 export default function ContatoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleWhatsApp = () => {
     const message = `Olá! Gostaria de solicitar informações sobre soluções de ar comprimido da Flow Energy.`
     const whatsappUrl = `https://wa.me/5511984539311?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
-  }
-
-  const handleSubmit = async (formData: FormData) => {
-    setIsSubmitting(true)
-    try {
-      await submitContactForm(formData)
-    } catch (error) {
-      console.error("Erro ao enviar formulário:", error)
-      alert("Erro ao enviar formulário. Tente novamente.")
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   return (
@@ -184,7 +170,7 @@ export default function ContatoPage() {
                 personalizada das suas necessidades.
               </p>
 
-              <form action={handleSubmit} className="space-y-6">
+              <form action="https://formspree.io/f/xeokwjgg" method="POST" className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="nome">Nome Completo *</Label>
@@ -250,14 +236,9 @@ export default function ContatoPage() {
                   </Label>
                 </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-blue-800 hover:bg-blue-900"
-                  disabled={isSubmitting}
-                >
+                <Button type="submit" size="lg" className="w-full bg-blue-800 hover:bg-blue-900">
                   <Send className="mr-2 h-5 w-5" />
-                  {isSubmitting ? "Enviando..." : "Solicitar Análise Técnica Gratuita"}
+                  Solicitar Análise Técnica Gratuita
                 </Button>
               </form>
             </div>

@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -7,16 +9,64 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Calculator, Monitor, Menu, X } from "lucide-react"
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Calculator,
+  Monitor,
+  Menu,
+  X,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react"
 import Link from "next/link"
 
 export default function ContatoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
   const handleWhatsApp = () => {
     const message = `Olá! Gostaria de solicitar informações sobre soluções de ar comprimido da Flow Energy.`
     const whatsappUrl = `https://wa.me/5511984539311?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeokwjgg", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
+        setSubmitStatus("success")
+        form.reset()
+        // Scroll para o topo para mostrar a mensagem de sucesso
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error)
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -135,6 +185,31 @@ export default function ContatoPage() {
         </div>
       </nav>
 
+      {/* Mensagem de Status */}
+      {submitStatus === "success" && (
+        <div className="bg-green-50 border-l-4 border-green-400 p-4">
+          <div className="flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
+            <div>
+              <p className="text-green-800 font-medium">Solicitação enviada com sucesso!</p>
+              <p className="text-green-700 text-sm">Nossa equipe entrará em contato em até 24 horas.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {submitStatus === "error" && (
+        <div className="bg-red-50 border-l-4 border-red-400 p-4">
+          <div className="flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AlertCircle className="h-5 w-5 text-red-400 mr-3" />
+            <div>
+              <p className="text-red-800 font-medium">Erro ao enviar solicitação</p>
+              <p className="text-red-700 text-sm">Tente novamente ou entre em contato via WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,7 +245,7 @@ export default function ContatoPage() {
                 personalizada das suas necessidades.
               </p>
 
-              <form action="https://formspree.io/f/xeokwjgg" method="POST" className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="nome">Nome Completo *</Label>
@@ -236,9 +311,14 @@ export default function ContatoPage() {
                   </Label>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-blue-800 hover:bg-blue-900">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-blue-800 hover:bg-blue-900"
+                  disabled={isSubmitting}
+                >
                   <Send className="mr-2 h-5 w-5" />
-                  Solicitar Análise Técnica Gratuita
+                  {isSubmitting ? "Enviando..." : "Solicitar Análise Técnica Gratuita"}
                 </Button>
               </form>
             </div>

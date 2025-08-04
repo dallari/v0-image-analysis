@@ -239,12 +239,7 @@ export default function HomePage() {
                 height={500}
                 className="rounded-lg shadow-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-slate-700 font-medium">Monitoramento Ativo 24h</span>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

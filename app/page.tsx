@@ -205,7 +205,7 @@ export default function HomePage() {
               <Badge className="bg-orange-600 text-white mb-4">Monitoramento 24h via Internet</Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 Soluções Completas em{" "}
-                <span className="text-orange-400">
+                <span className="text-[#F1B500]">
                   {displayText}
                   <span className="animate-pulse">|</span>
                 </span>
@@ -221,7 +221,6 @@ export default function HomePage() {
                     Solicite Análise Técnica Gratuita
                   </Link>
                 </Button>
-                
               </div>
             </div>
             <div className="relative">
@@ -232,7 +231,6 @@ export default function HomePage() {
                 height={500}
                 className="rounded-lg shadow-2xl"
               />
-              
             </div>
           </div>
         </div>

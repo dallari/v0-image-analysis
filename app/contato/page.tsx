@@ -25,6 +25,7 @@ import {
   AlertCircle,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function ContatoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -95,7 +96,7 @@ export default function ContatoPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-blue-800">Flow Energy</h1>
+                <Image src="/logo-flow-energy.png" alt="Flow Energy" width={160} height={40} className="h-10 w-auto" />
               </Link>
             </div>
             <div className="hidden md:block">

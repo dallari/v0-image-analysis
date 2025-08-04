@@ -221,14 +221,7 @@ export default function HomePage() {
                     Solicite Análise Técnica Gratuita
                   </Link>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-800 bg-transparent"
-                >
-                  <Monitor className="mr-2 h-5 w-5" />
-                  Conheça o Monitoramento 24h
-                </Button>
+                
               </div>
             </div>
             <div className="relative">

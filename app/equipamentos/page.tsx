@@ -186,10 +186,25 @@ export default function EquipamentosPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="novos" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="novos">Equipamentos Novos</TabsTrigger>
-              <TabsTrigger value="usados">Equipamentos Usados</TabsTrigger>
-              <TabsTrigger value="tratamento">Sistemas de Tratamento</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 mb-8 h-auto p-1 bg-blue-100 rounded-xl">
+              <TabsTrigger
+                value="novos"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
+                Equipamentos Novos
+              </TabsTrigger>
+              <TabsTrigger
+                value="usados"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
+                Equipamentos Usados
+              </TabsTrigger>
+              <TabsTrigger
+                value="tratamento"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
+                Sistemas de Tratamento
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="novos">

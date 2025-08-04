@@ -165,14 +165,7 @@ export default function MonitoramentoPage() {
                     Solicitar Demonstração
                   </Link>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-800 bg-transparent"
-                >
-                  <Calculator className="mr-2 h-5 w-5" />
-                  Calcular Economia
-                </Button>
+                
               </div>
             </div>
             <div className="relative">

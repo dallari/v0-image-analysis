@@ -312,8 +312,8 @@ export default function EmpresaPage() {
             </div>
             <div className="relative">
               <Image
-                src="/pequeno-com-rodas.png"
-                alt="Compressor industrial Kaeser M350 em ambiente externo"
+                src="/tecnico-analise.png"
+                alt="Técnico Flow Energy realizando análise de instalação"
                 width={500}
                 height={400}
                 className="rounded-lg shadow-lg"

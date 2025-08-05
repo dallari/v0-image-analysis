@@ -324,8 +324,8 @@ export default function EmpresaPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
               <Image
-                src="/pequeno-com-rodas.png"
-                alt="Compressor industrial Kaeser M350 em ambiente externo"
+                src="/placeholder.svg?height=400&width=500"
+                alt="Sistema de monitoramento Flow Energy"
                 width={500}
                 height={400}
                 className="rounded-lg shadow-lg"

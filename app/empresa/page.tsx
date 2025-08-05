@@ -170,8 +170,8 @@ export default function EmpresaPage() {
             {/* imagem da equipe */}
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
-                alt="Equipe Flow Energy em instalação industrial"
+                src="/gigante-no-deserto.png"
+                alt="Compressor industrial Kaeser HSD 301 em ambiente desértico"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-2xl"

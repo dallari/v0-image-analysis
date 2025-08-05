@@ -312,7 +312,7 @@ export default function EmpresaPage() {
             </div>
             <div className="relative">
               <Image
-                src="/grande-com-rodas.png"
+                src="/pequeno-com-rodas.png"
                 alt="Técnico Flow Energy realizando análise de instalação"
                 width={500}
                 height={400}
@@ -324,8 +324,8 @@ export default function EmpresaPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
               <Image
-                src="/grande-com-rodas.png"
-                alt="Compressor industrial Kaeser M 500-2 em ambiente externo"
+                src="/placeholder.svg?height=400&width=500"
+                alt="Sistema de monitoramento Flow Energy"
                 width={500}
                 height={400}
                 className="rounded-lg shadow-lg"

@@ -324,7 +324,7 @@ export default function EmpresaPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
               <Image
-                src="/grande-com-rodas.svg?height=400&width=500"
+                src="/grande-com-rodas.png?height=400&width=500"
                 alt="Sistema de monitoramento Flow Energy"
                 width={500}
                 height={400}

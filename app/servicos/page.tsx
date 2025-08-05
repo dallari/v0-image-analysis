@@ -181,17 +181,29 @@ export default function ServicosPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="terceirizacao" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8">
-              <TabsTrigger value="terceirizacao" className="text-sm">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 h-auto p-1 bg-blue-100 rounded-xl">
+              <TabsTrigger
+                value="terceirizacao"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
                 Terceirização
               </TabsTrigger>
-              <TabsTrigger value="venda" className="text-sm">
+              <TabsTrigger
+                value="venda"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
                 Venda de Ar
               </TabsTrigger>
-              <TabsTrigger value="locacao" className="text-sm">
+              <TabsTrigger
+                value="locacao"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
                 Locação
               </TabsTrigger>
-              <TabsTrigger value="auditoria" className="text-sm">
+              <TabsTrigger
+                value="auditoria"
+                className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
+              >
                 Auditoria
               </TabsTrigger>
             </TabsList>

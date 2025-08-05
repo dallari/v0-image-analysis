@@ -312,7 +312,7 @@ export default function EmpresaPage() {
             </div>
             <div className="relative">
               <Image
-                src="/tecnico.png"
+                src="/tecnico-analise.png"
                 alt="Técnico Flow Energy realizando análise de instalação"
                 width={500}
                 height={400}

@@ -5,23 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  CheckCircle,
-  Settings,
-  Zap,
-  Shield,
-  Award,
-  TrendingUp,
-  Wrench,
-  Filter,
-  Gauge,
-  Phone,
-  Calculator,
-  Star,
-  ThermometerSun,
-  Droplets,
-  Wind,
-} from "lucide-react"
+import { CheckCircle, Settings, Zap, Shield, Award, TrendingUp, Wrench, Filter, Gauge, Phone, Calculator, Star, ThermometerSun, Droplets, Wind } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 
@@ -186,7 +170,7 @@ export default function EquipamentosPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="novos" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8 h-auto p-1 bg-blue-100 rounded-xl">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 h-auto p-1 bg-blue-100 rounded-xl">
               <TabsTrigger
                 value="novos"
                 className="data-[state=active]:bg-blue-800 data-[state=active]:text-white data-[state=active]:shadow-lg transition-all duration-300 ease-in-out text-blue-800 hover:bg-blue-200 hover:text-blue-900 rounded-lg py-3 px-4 text-base font-semibold"
